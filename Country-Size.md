@@ -1,38 +1,41 @@
----
-title: "Untitled"
-author: "Prabha"
-date: "5/9/2021"
-output: 
-  html_document:
-    keep_md: true
----
-
-
+Country Size
+================
+Prabha Area
+5/9/2021
 
 ## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+There are many type of world maps and the reason being no one map
+project is truly correct way of the representing earth in a 2D surface.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+You can refer to some of the map types here in
+[futuremaps.com](https://futuremaps.com/blogs/news/top-10-world-map-projections).
 
+I want to see the size of a country relative to each other which is hard
+to see it in a map. Hence creating a treemap visual using R to showcase
+this.
 
-```r
+``` r
 c= read_csv('countries_by_area.csv')
 ```
 
-```
-## 
-## ── Column specification ────────────────────────────────────────────────────────
-## cols(
-##   country = col_character(),
-##   population = col_number(),
-##   land_area_sq_km = col_number()
-## )
-```
+*data source:
+[worldmeters.info](https://www.worldometers.info/world-population/population-by-country/)*
 
-```r
-ggplot(c,aes(area = land_area_sq_km,label=country))+ geom_treemap()+geom_treemap_text(fontface = 'italic',color="white",place="center")
+**By Land Area**
+
+``` r
+ggplot(c,aes(area = land_area_sq_km,label=country))+
+  geom_treemap()+geom_treemap_text(fontface = 'italic',color="white",place="center")
 ```
 
-![](Country-Size_files/figure-html/cars-1.png)<!-- -->
+![](Country-Size_files/figure-gfm/area-1.png)<!-- -->
 
+**By Population**
+
+``` r
+ggplot(c,aes(area = population,label=country))+
+  geom_treemap()+geom_treemap_text(fontface = 'italic',color="white",place="center")
+```
+
+![](Country-Size_files/figure-gfm/pop-1.png)<!-- -->
