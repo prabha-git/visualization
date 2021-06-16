@@ -3,8 +3,6 @@ Country Size
 Prabha Area
 5/9/2021
 
-## R Markdown
-
 There are many type of world maps and the reason being no one map
 project is truly correct way of the representing earth in a 2D surface.
 
